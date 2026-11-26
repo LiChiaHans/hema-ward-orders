@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12D 血液科病房常用處方速查 | Hematology Ward Common Orders</title>
+  <meta name="description" content="12D 血液科病房常用處方、突破性止吐、入院醫令、TDM 藥物濃度監測、Ribavirin RSV 劑量計算與 Antibiotic Lock 泡法與 CRI 指引速查。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <div class="brand">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.5 20.5 10 22l-4-1 1-4 .5-1.5"></path>
+              <path d="m14 6 4 4"></path>
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="title-row">
+              <h1>12D 血液科病房常用處方</h1>
+              <span class="version-badge">2026.11</span>
+            </div>
+            <p class="brand-subtitle">Hematology Ward Common Orders · TDM · Ribavirin · Antibiotic Lock</p>
+          </div>
+        </div>
+        <a class="portal-link" href="https://lichiahans.github.io/hematology-portal/">← 血液科入口網</a>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="搜尋藥名、適應症、泡法、TDM... ( / )"
+            aria-label="搜尋病房處方"
+          />
+          <button id="clear-search-x" class="search-clear hidden" type="button" aria-label="清除搜尋">✕</button>
+        </div>
+        <button id="theme-toggle" class="icon-btn" type="button" title="切換深色／淺色模式" aria-label="切換深色／淺色模式">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="快速章節導覽">
+    <div class="container nav-pills" id="nav-pills">
+      <a class="nav-pill active" href="#sec-common" data-target="sec-common">常用處方</a>
+      <a class="nav-pill" href="#sec-nv" data-target="sec-nv">突破性止吐</a>
+      <a class="nav-pill" href="#sec-admission" data-target="sec-admission">入院常用 &amp; TDM</a>
+      <a class="nav-pill" href="#sec-ribavirin" data-target="sec-ribavirin">Ribavirin (RSV)</a>
+      <a class="nav-pill" href="#sec-lock" data-target="sec-lock">12D Lock 泡法</a>
+      <a class="nav-pill" href="#sec-cri" data-target="sec-cri">CRI 流程 &amp; ALT 文獻</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <div id="search-summary" class="search-summary hidden">
+      <span>搜尋「<strong id="search-term-display"></strong>」：找到 <strong id="search-count">0</strong> 筆相關項目</span>
+      <button id="reset-search-btn" class="btn-link" type="button">顯示全部</button>
+    </div>
+
+    <!-- 1. 12D 常用處方 -->
+    <section class="content-section" id="sec-common">
+      <div class="section-header">
+        <div>
+          <h2>12D 常用處方</h2>
+          <p>局部照護、口腔黏膜炎、止嗝、輸血前給藥、管路 Lock 與白血球生長激素（點擊右側按鈕可一鍵複製開方）</p>
+        </div>
+        <div class="filter-chips" id="common-filter">
+          <button class="chip active" data-cat="all" type="button">全部</button>
+          <button class="chip" data-cat="hemorrhoid" type="button">痔瘡</button>
+          <button class="chip" data-cat="oral" type="button">口腔/漱口</button>
+          <button class="chip" data-cat="symptom" type="button">止嗝/輸血</button>
+          <button class="chip" data-cat="lock" type="button">管路 LOCK</button>
+          <button class="chip" data-cat="gcsf" type="button">G-CSF</button>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table class="clinical-table" id="common-orders-table">
+            <thead>
+              <tr>
+                <th style="width: 14%">適應症</th>
+                <th style="width: 11%">分類</th>
+                <th style="width: 39%">商品名與備註</th>
+                <th style="width: 36%">開方 / 特殊醫囑</th>
+              </tr>
+            </thead>
+            <tbody id="common-orders-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- G-CSF 小計算機 -->
+      <div class="calc-card compact-calc" id="gcsf-calc">
+        <div class="calc-header">
+          <div>
+            <h3>G-CSF 短效劑量試算（5 mcg/kg SC QN）</h3>
+            <p>Filgrastim 300 mcg/amp 與 75 mcg/amp 快速換算</p>
+          </div>
+          <div class="calc-inline-form">
+            <label for="gcsf-weight">體重 (kg)</label>
+            <input type="number" id="gcsf-weight" min="20" max="180" step="0.5" placeholder="例如 60" />
+          </div>
+        </div>
+        <div class="calc-result-inline" id="gcsf-result">
+          輸入體重即可計算建議劑量（5 mcg/kg，臨床取整數開立）。
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Breakthrough Nausea and Vomiting -->
+    <section class="content-section" id="sec-nv">
+      <div class="section-header">
+        <div>
+          <h2>突破性噁心嘔吐（Breakthrough Nausea &amp; Vomiting）</h2>
+          <p>止吐針劑與口溶／口服救援藥物；標示 <span class="badge badge-selfpay">自費$</span> 者請先與病人說明自費費用</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th style="width: 13%">劑型</th>
+                <th style="width: 12%">給付</th>
+                <th style="width: 40%">商品名與注意事項</th>
+                <th style="width: 35%">開方 / 特殊醫囑</th>
+              </tr>
+            </thead>
+            <tbody id="nv-orders-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 入院常用 & TDM -->
+    <section class="content-section" id="sec-admission">
+      <div class="section-header">
+        <div>
+          <h2>入院常用醫令 &amp; 藥物濃度監測（TDM）</h2>
+          <p>入院常規篩檢注意事項與免疫抑制劑、Methotrexate、抗黴菌藥物血中濃度開立途徑</p>
+        </div>
+      </div>
+
+      <div class="grid-2-adm">
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>入院常用醫令</h3>
+            <span class="badge badge-info">Admission Routine</span>
+          </div>
+          <div class="adm-list" id="admission-list"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>藥物濃度監測（TDM）</h3>
+            <span class="badge badge-teal">Toxicology TDM</span>
+          </div>
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th style="width: 28%">檢驗醫令</th>
+                  <th style="width: 34%">抽血時間與規則</th>
+                  <th style="width: 38%">開立途徑</th>
+                </tr>
+              </thead>
+              <tbody id="tdm-body"></tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-info" style="margin-top: 14px;">
+            <div class="callout-title">
+              <span>[自費] Antifungal Level 開立細項（醫令碼：<code>000R5042</code>）</span>
+              <button class="copy-btn-mini" data-copy="000R5042" type="button" title="複製醫令碼">複製醫令碼</button>
+            </div>
+            <ul class="callout-list">
+              <li><strong>系統路徑：</strong>診療醫令 → 檢驗 → <code>Toxicology TDM(毒物學與藥物檢測)</code> → <code>TDM(I), Antibiotics(藥物檢測(抗生素))</code> → 勾選 <strong>[自費] antifungal level 總院</strong>（亦可於右上角直接搜尋 <code>antifungal</code>）。</li>
+              <li><strong>血中抗黴菌藥物（請確實勾選其中一項）：</strong>
+                <div class="pill-list">
+                  <span class="drug-pill">voriconazole trough level</span>
+                  <span class="drug-pill">itraconazole trough level</span>
+                  <span class="drug-pill">isavuconazole trough level</span>
+                  <span class="drug-pill">posaconazole trough level</span>
+                </div>
+              </li>
+              <li><strong>收檢與報告時間：</strong>每週三中午前截止收檢（每週只上機一次），每週四下午發報告；建議給藥前抽血。</li>
+              <li><strong>同意書與聯絡：</strong>院內 KM 文件 ID <code>91803</code>（<code>km.ntuh.gov.tw/km/readdocument.aspx?documentId=91803</code>）；有疑問請洽分機 <strong>288879</strong>。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Ribavirin for RSV -->
+    <section class="content-section" id="sec-ribavirin">
+      <div class="section-header">
+        <div>
+          <h2>Ribavirin for RSV 劑量指引</h2>
+          <p>依實際總體重（Total Body Weight）與腎功能／透析模式給藥 · 來源：<a href="https://idmp.ucsf.edu/content/ribavirin" target="_blank" rel="noopener noreferrer" class="ext-link">UCSF IDMP Ribavirin Dosing ↗</a></p>
+        </div>
+      </div>
+
+      <!-- Ribavirin 互動計算機 -->
+      <div class="calc-card" id="ribavirin-calc">
+        <div class="calc-header">
+          <div>
+            <h3>Ribavirin (RSV) 互動劑量計算機</h3>
+            <p>輸入病人總體重（Total Body Weight）並選擇腎功能或透析狀態</p>
+          </div>
+        </div>
+        <div class="calc-controls">
+          <div class="field">
+            <label for="riba-weight">總體重 Total Body Weight (kg)</label>
+            <input type="number" id="riba-weight" min="30" max="200" step="0.5" value="60" />
+          </div>
+          <div class="field">
+            <label for="riba-renal">腎功能 / 透析模式</label>
+            <select id="riba-renal">
+              <option value="crcl_50">CrCl ≥ 50 mL/min（非透析）</option>
+              <option value="crcl_30_49">CrCl 30–49 mL/min（非透析）</option>
+              <option value="crcl_10_29">CrCl 10–29 mL/min（非透析）</option>
+              <option value="crcl_lt10">CrCl &lt; 10 mL/min（非透析）</option>
+              <option value="ihd">Intermittent Hemodialysis (IHD)</option>
+              <option value="crrt">Continuous Hemodialysis (CRRT)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-output" id="riba-output"></div>
+      </div>
+
+      <div class="grid-2-riba">
+        <div class="table-card">
+          <div class="card-title-bar">
+            <h3>Adult Antimicrobial Dosing, Non-dialysis</h3>
+            <span class="badge badge-info">Use Total Body Weight</span>
+          </div>
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th>CrCl ≥ 50 mL/min</th>
+                  <th>CrCl 30–49 mL/min</th>
+                  <th>10–29 mL/min</th>
+                  <th>&lt; 10 mL/min</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="searchable-row">
+                  <td>
+                    <ul class="dose-list">
+                      <li><strong>40–49 kg：</strong>400 mg PO q12h</li>
+                      <li><strong>50–59 kg：</strong>400 mg PO qAM + 600 mg PO qPM</li>
+                      <li><strong>60–69 kg：</strong>600 mg PO q12h</li>
+                      <li><strong>70–79 kg：</strong>600 mg PO qAM + 800 mg PO qPM</li>
+                      <li><strong>80–89 kg：</strong>800 mg PO q12h</li>
+                      <li><strong>≥ 90 kg：</strong>600 mg PO q8h</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="dose-list">
+                      <li><strong>40–59 kg：</strong>200 mg PO q12h</li>
+                      <li><strong>≥ 60 kg：</strong>200 mg PO q8h</li>
+                    </ul>
+                  </td>
+                  <td><strong>200 mg PO daily</strong></td>
+                  <td><strong>200 mg PO daily</strong><br /><span class="muted-note">(consider contacting ID/ASP pharmacist)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="card-title-bar">
+            <h3>Intermittent &amp; Continuous Hemodialysis</h3>
+            <span class="badge badge-amber">Dialysis</span>
+          </div>
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th style="width: 55%">Intermittent Hemodialysis (IHD)</th>
+                  <th style="width: 45%">Continuous Hemodialysis (CRRT)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="searchable-row">
+                  <td>
+                    <strong>200 mg PO daily</strong><br />
+                    <span class="muted-note">(give daily — on days of hemodialysis, give dose afterwards)</span>
+                  </td>
+                  <td>
+                    <ul class="dose-list">
+                      <li><strong>40–59 kg：</strong>200 mg PO q12h</li>
+                      <li><strong>≥ 60 kg：</strong>200 mg PO q8h</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footnote">
+            <strong>Hepatitis C：</strong>Dosing is highly individualized. Refer to <a href="https://www.hcvguidelines.org" target="_blank" rel="noopener noreferrer" class="ext-link">www.hcvguidelines.org</a> for detailed information.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 12D 常用 Lock 處方及泡法 -->
+    <section class="content-section" id="sec-lock">
+      <div class="section-header">
+        <div>
+          <h2>12D 常用 Antibiotic Lock 處方及泡法</h2>
+          <p>Port-A 抗生素封存療法（ALT）標準配製與醫囑開立（2026.11 版）</p>
+        </div>
+      </div>
+
+      <div class="alert-banner alert-danger">
+        <div class="alert-icon" aria-hidden="true">⚠</div>
+        <div>
+          <strong>Hema 因血小板低「都不加 Heparin」！</strong>
+          <p>療程：<strong>Lock 10–14 天（至少 &gt; 7 天）</strong>，<strong>Q3D f/u Port-A culture</strong>（若 lock failure 則移除 Port-A）。</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table class="clinical-table" id="lock-table">
+            <thead>
+              <tr>
+                <th style="width: 14%">藥品</th>
+                <th style="width: 11%">最終濃度</th>
+                <th style="width: 35%">處方（途徑：ALT）</th>
+                <th style="width: 40%">泡法與稀釋步驟</th>
+              </tr>
+            </thead>
+            <tbody id="lock-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CRI 評估流程與 ALT 文獻對照 -->
+    <section class="content-section" id="sec-cri">
+      <div class="section-header">
+        <div>
+          <h2>CRI 評估與治療流程 &amp; ALT 文獻對照表</h2>
+          <p>導管相關感染（Catheter-Related Infection）處置決策樹與院內／感控雜誌／UpToDate 抗生素封存濃度參考</p>
+        </div>
+      </div>
+
+      <!-- CRI 流程圖 -->
+      <div class="card flowchart-card">
+        <div class="card-title-bar">
+          <h3>圖一：評估與治療 CRI 流程圖</h3>
+          <span class="badge badge-info">Catheter-Related Infection</span>
+        </div>
+
+        <div class="flow-diagram">
+          <div class="flow-top">
+            <div class="flow-node node-start">診斷為 CRI</div>
+            <div class="flow-arrow-down">↓</div>
+            <div class="flow-decision-row">
+              <div class="flow-node node-decision">
+                局部併發症<sup>a</sup> 或<br />嚴重敗血性感染 或<br />遠端合併症<sup>b</sup>
+              </div>
+              <div class="flow-branch-right">
+                <div class="flow-arrow-right"><span class="branch-label yes">是</span> →</div>
+                <div class="flow-node node-remove">
+                  <strong>移除管路 ＋ 全身性抗生素投予</strong><br />
+                  <span class="node-sub">（治療時間依合併症決定）</span>
+                </div>
+              </div>
+            </div>
+            <div class="flow-arrow-down"><span class="branch-label no">否</span> ↓</div>
+          </div>
+
+          <div class="flow-outcomes">
+            <div class="flow-col">
+              <div class="flow-node node-pathogen">CoNS</div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-alt">
+                <strong>ALT ＋ 全身性抗生素</strong><br />
+                <span class="node-sub">10–14 天</span>
+              </div>
+            </div>
+
+            <div class="flow-col">
+              <div class="flow-node node-pathogen"><em>Staphylococcus aureus</em></div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-remove-pill">移除管路</div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-sys">
+                <strong>全身性抗生素</strong><br />
+                <span class="node-sub">10–14 天</span>
+              </div>
+            </div>
+
+            <div class="flow-col">
+              <div class="flow-node node-pathogen">Gram-negative bacilli<sup>c</sup></div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-alt">
+                <strong>ALT ＋ 全身性抗生素</strong><br />
+                <span class="node-sub">10–14 天</span>
+              </div>
+            </div>
+
+            <div class="flow-col">
+              <div class="flow-node node-pathogen"><em>Candida</em> spp.</div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-remove-pill">移除管路</div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-sys">
+                <strong>全身性抗生素</strong><br />
+                <span class="node-sub">10–14 天</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-footnotes">
+          <p><sup>a</sup> 導管植入處出現紅腫、疼痛或膿瘍等局部感染症狀。</p>
+          <p><sup>b</sup> 心內膜炎、血栓性靜脈炎、敗血性血栓。</p>
+          <p><sup>c</sup> 不包含 <em>Pseudomonas aeruginosa</em>。</p>
+          <p class="abbr-line"><strong>縮寫：</strong>ALT = antibiotic lock therapy；CoNS = coagulase-negative staphylococci；CRI = catheter-related infection。</p>
+        </div>
+      </div>
+
+      <!-- 三份 ALT 文獻對照表 Tabs -->
+      <div class="table-card" style="margin-top: 20px;">
+        <div class="tabs-bar" role="tablist" aria-label="ALT 參考文獻對照表">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-alt-tw" type="button">
+            表一：ALT 稀釋液、濃度與劑量建議
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-icj" type="button">
+            感控雜誌 (2013;23:88-94)
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-uptodate" type="button">
+            UpToDate CRBSI Lock Concentrations
+          </button>
+        </div>
+
+        <!-- Tab 1: 表一 ALT 給藥途徑 -->
+        <div class="tab-panel active" id="tab-alt-tw">
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th>適應症</th>
+                  <th>學名</th>
+                  <th>稀釋液</th>
+                  <th>建議濃度 (mg/mL)</th>
+                  <th>Heparin 濃度 (units/mL)</th>
+                  <th>管路留置時間 (hrs)</th>
+                  <th>參考文獻</th>
+                </tr>
+              </thead>
+              <tbody id="ref-alt-tw-body"></tbody>
+            </table>
+          </div>
+          <div class="table-footnote">
+            # 不同導管間之體積約為 2–5 mL，可用生理食鹽水注入導管，再抽取至回血，測量實際體積。<br />
+            LR: lactated Ringer's；NS: normal saline。（提醒：12D 血液科病房因血小板低，實務上皆不加 Heparin）
+          </div>
+        </div>
+
+        <!-- Tab 2: 感控雜誌 2013 -->
+        <div class="tab-panel" id="tab-icj">
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th>抗生素</th>
+                  <th>配置劑量</th>
+                  <th>肝素溶液量</th>
+                  <th>封存時間</th>
+                </tr>
+              </thead>
+              <tbody id="ref-icj-body"></tbody>
+            </table>
+          </div>
+          <div class="table-footnote">
+            資料來源：感控雜誌 2013;23:88-94《表一、常見的抗生素封存療法溶液的配置 [10-18]》。
+          </div>
+        </div>
+
+        <!-- Tab 3: UpToDate -->
+        <div class="tab-panel" id="tab-uptodate">
+          <div class="table-wrap">
+            <table class="clinical-table compact">
+              <thead>
+                <tr>
+                  <th>Spectrum</th>
+                  <th>Antibiotic Agent</th>
+                  <th>Antibiotic Concentration</th>
+                  <th>Heparin Concentration</th>
+                  <th>Maximum Dwell Time</th>
+                  <th>References</th>
+                </tr>
+              </thead>
+              <tbody id="ref-uptodate-body"></tbody>
+            </table>
+          </div>
+          <div class="table-footnote">
+            <ul class="footnote-bullets">
+              <li>Antibiotic lock solutions for the treatment of CRBSIs in the setting of catheter salvage should be used in conjunction with systemic antibiotic therapy.</li>
+              <li>The choice of antibiotic for ALT should be guided by the antimicrobial susceptibility of the infecting organism. There is no standard antibiotic or dosing regimen for use in ALT.</li>
+              <li>The solutions in the table are standardized to a 2 mL volume. If larger volumes are needed to fill the catheter lumen, adjust quantities proportionally. (Source: UpToDate)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>12D 血液科病房常用處方速查 · 僅供院內醫療人員臨床參考，實際開立請依病人腎功能、血小板與院內最新藥品規格確認</p>
+      <p><a href="https://lichiahans.github.io/hematology-portal/" class="ext-link">返回血液科臨床資源入口網</a> · 2026.11</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
