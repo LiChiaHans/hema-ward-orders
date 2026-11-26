@@ -750,16 +750,15 @@ code {
 
 /* Admission & TDM */
 .grid-2-adm {
-  display: grid;
-  grid-template-columns: 1fr 1.55fr;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-  align-items: start;
 }
 
 .adm-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .adm-item {
@@ -1339,6 +1338,10 @@ tr.search-hidden,
 }
 
 @media (max-width: 640px) {
+  .adm-list {
+    grid-template-columns: 1fr;
+  }
+
   .section-nav {
     top: 0;
     position: static;
