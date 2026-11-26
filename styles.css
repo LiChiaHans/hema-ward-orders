@@ -1157,6 +1157,54 @@ code {
   line-height: 1.55;
 }
 
+/* Templates Section */
+.templates-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.callout-amber {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  color: var(--amber-text);
+}
+
+.template-pre {
+  font-family: "JetBrains Mono", "Noto Sans TC", monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+.cert-block {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+}
+
+.cert-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  letter-spacing: 0.03em;
+}
+
+.cert-value {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
 .flow-col {
   display: flex;
   flex-direction: column;
@@ -1272,7 +1320,7 @@ code {
 
 /* Search highlight */
 tr.search-hidden,
-.adm-item.search-hidden {
+.searchable-item.search-hidden {
   display: none;
 }
 
