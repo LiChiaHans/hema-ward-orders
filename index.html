@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>12D 血液科病房常用處方速查 | Hematology Ward Common Orders</title>
-  <meta name="description" content="12D 血液科病房常用處方、突破性止吐、入院醫令、TDM 藥物濃度監測、Ribavirin RSV 劑量計算與 Antibiotic Lock 泡法與 CRI 指引速查。" />
+  <title>血液科病房常用處方速查 | Hematology Ward Common Orders</title>
+  <meta name="description" content="血液科病房常用處方、突破性止吐、入院醫令、TDM 藥物濃度監測、Ribavirin RSV 劑量計算與抗生素封存療法（ALT）使用建議與泡法速查。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -24,10 +24,10 @@
           </div>
           <div>
             <div class="title-row">
-              <h1>12D 血液科病房常用處方</h1>
+              <h1>血液科病房常用處方</h1>
               <span class="version-badge">2026.11</span>
             </div>
-            <p class="brand-subtitle">Hematology Ward Common Orders · TDM · Ribavirin · Antibiotic Lock</p>
+            <p class="brand-subtitle">Hematology Ward Common Orders · TDM · Ribavirin · Antibiotic Lock (ALT)</p>
           </div>
         </div>
         <a class="portal-link" href="https://lichiahans.github.io/hematology-portal/">← 血液科入口網</a>
@@ -73,8 +73,8 @@
       <a class="nav-pill" href="#sec-nv" data-target="sec-nv">突破性止吐</a>
       <a class="nav-pill" href="#sec-admission" data-target="sec-admission">入院常用 &amp; TDM</a>
       <a class="nav-pill" href="#sec-ribavirin" data-target="sec-ribavirin">Ribavirin (RSV)</a>
-      <a class="nav-pill" href="#sec-lock" data-target="sec-lock">12D Lock 泡法</a>
-      <a class="nav-pill" href="#sec-cri" data-target="sec-cri">CRI 流程 &amp; ALT 文獻</a>
+      <a class="nav-pill" href="#sec-lock" data-target="sec-lock">常用 Lock 泡法</a>
+      <a class="nav-pill" href="#sec-cri" data-target="sec-cri">ALT 使用建議 &amp; CRI 流程</a>
     </div>
   </nav>
 
@@ -84,12 +84,12 @@
       <button id="reset-search-btn" class="btn-link" type="button">顯示全部</button>
     </div>
 
-    <!-- 1. 12D 常用處方 -->
+    <!-- 1. 病房常用處方 -->
     <section class="content-section" id="sec-common">
       <div class="section-header">
         <div>
-          <h2>12D 常用處方</h2>
-          <p>局部照護、口腔黏膜炎、止嗝、輸血前給藥、管路 Lock 與白血球生長激素（點擊右側按鈕可一鍵複製開方）</p>
+          <h2>病房常用處方</h2>
+          <p>局部照護、口腔黏膜炎、止嗝、輸血前給藥、管路 Lock 與白血球生長激素</p>
         </div>
         <div class="filter-chips" id="common-filter">
           <button class="chip active" data-cat="all" type="button">全部</button>
@@ -106,31 +106,14 @@
           <table class="clinical-table" id="common-orders-table">
             <thead>
               <tr>
-                <th style="width: 14%">適應症</th>
+                <th style="width: 15%">適應症</th>
                 <th style="width: 11%">分類</th>
-                <th style="width: 39%">商品名與備註</th>
-                <th style="width: 36%">開方 / 特殊醫囑</th>
+                <th style="width: 40%">商品名與備註</th>
+                <th style="width: 34%">開方 / 特殊醫囑</th>
               </tr>
             </thead>
             <tbody id="common-orders-body"></tbody>
           </table>
-        </div>
-      </div>
-
-      <!-- G-CSF 小計算機 -->
-      <div class="calc-card compact-calc" id="gcsf-calc">
-        <div class="calc-header">
-          <div>
-            <h3>G-CSF 短效劑量試算（5 mcg/kg SC QN）</h3>
-            <p>Filgrastim 300 mcg/amp 與 75 mcg/amp 快速換算</p>
-          </div>
-          <div class="calc-inline-form">
-            <label for="gcsf-weight">體重 (kg)</label>
-            <input type="number" id="gcsf-weight" min="20" max="180" step="0.5" placeholder="例如 60" />
-          </div>
-        </div>
-        <div class="calc-result-inline" id="gcsf-result">
-          輸入體重即可計算建議劑量（5 mcg/kg，臨床取整數開立）。
         </div>
       </div>
     </section>
@@ -151,8 +134,8 @@
               <tr>
                 <th style="width: 13%">劑型</th>
                 <th style="width: 12%">給付</th>
-                <th style="width: 40%">商品名與注意事項</th>
-                <th style="width: 35%">開方 / 特殊醫囑</th>
+                <th style="width: 41%">商品名與注意事項</th>
+                <th style="width: 34%">開方 / 特殊醫囑</th>
               </tr>
             </thead>
             <tbody id="nv-orders-body"></tbody>
@@ -200,7 +183,6 @@
           <div class="callout callout-info" style="margin-top: 14px;">
             <div class="callout-title">
               <span>[自費] Antifungal Level 開立細項（醫令碼：<code>000R5042</code>）</span>
-              <button class="copy-btn-mini" data-copy="000R5042" type="button" title="複製醫令碼">複製醫令碼</button>
             </div>
             <ul class="callout-list">
               <li><strong>系統路徑：</strong>診療醫令 → 檢驗 → <code>Toxicology TDM(毒物學與藥物檢測)</code> → <code>TDM(I), Antibiotics(藥物檢測(抗生素))</code> → 勾選 <strong>[自費] antifungal level 總院</strong>（亦可於右上角直接搜尋 <code>antifungal</code>）。</li>
@@ -335,11 +317,11 @@
       </div>
     </section>
 
-    <!-- 5. 12D 常用 Lock 處方及泡法 -->
+    <!-- 5. 血液科常用 Lock 處方及泡法 -->
     <section class="content-section" id="sec-lock">
       <div class="section-header">
         <div>
-          <h2>12D 常用 Antibiotic Lock 處方及泡法</h2>
+          <h2>常用 Antibiotic Lock 處方及泡法</h2>
           <p>Port-A 抗生素封存療法（ALT）標準配製與醫囑開立（2026.11 版）</p>
         </div>
       </div>
@@ -347,7 +329,7 @@
       <div class="alert-banner alert-danger">
         <div class="alert-icon" aria-hidden="true">⚠</div>
         <div>
-          <strong>Hema 因血小板低「都不加 Heparin」！</strong>
+          <strong>血液科病人因血小板低「都不加 Heparin」！</strong>
           <p>療程：<strong>Lock 10–14 天（至少 &gt; 7 天）</strong>，<strong>Q3D f/u Port-A culture</strong>（若 lock failure 則移除 Port-A）。</p>
         </div>
       </div>
@@ -369,19 +351,72 @@
       </div>
     </section>
 
-    <!-- 6. CRI 評估流程與 ALT 文獻對照 -->
+    <!-- 6. 抗生素封存療法 (ALT) 使用建議 & CRI 流程 -->
     <section class="content-section" id="sec-cri">
       <div class="section-header">
         <div>
-          <h2>CRI 評估與治療流程 &amp; ALT 文獻對照表</h2>
-          <p>導管相關感染（Catheter-Related Infection）處置決策樹與院內／感控雜誌／UpToDate 抗生素封存濃度參考</p>
+          <h2>抗生素封存療法（ALT）使用建議 &amp; CRI 評估流程</h2>
+          <p>國立臺灣大學醫學院附設醫院 內科部感染科、藥劑部（文件編號 <code>15660-2-000004</code> · 版次 1 · 檢視日期 2026/03/11）</p>
         </div>
       </div>
 
-      <!-- CRI 流程圖 -->
-      <div class="card flowchart-card">
+      <!-- 院內 ALT 指引重點摘要卡片 -->
+      <div class="alt-guideline-grid">
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>定義與適用範圍</h3>
+            <span class="badge badge-info">ALT Overview</span>
+          </div>
+          <ul class="guideline-list">
+            <li><strong>適用範圍：</strong>因靜脈留置導管相關感染（CRI）需進行導管救援治療之成年病人。</li>
+            <li><strong>ALT 定義：</strong>將高濃度（約最小抑菌濃度 MIC 之 <strong>100–1000 倍</strong>）抗生素（± heparin）溶液長時間留置於導管管腔內，以破壞生物膜並殺死細菌，可避免導管移除、縮短治療時間與住院天數。</li>
+            <li><strong>使用時機：</strong>治療非複雜性 CRI，若以保留導管為主要目標，於全身性抗生素同時輔以 <strong>10–14 天</strong> ALT（針對葡萄球菌與大部分革蘭氏陰性菌）。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>建議移除管路之情況</h3>
+            <span class="badge badge-danger">Remove Catheter</span>
+          </div>
+          <ul class="guideline-list">
+            <li><strong>複雜性 CRI：</strong>病人發生局部併發症、嚴重敗血性感染或遠端合併症。</li>
+            <li><strong>特定致病菌：</strong><em>Staphylococcus aureus</em>、<em>Pseudomonas aeruginosa</em>、drug-resistant G(-) bacilli、<em>Mycobacterium</em> spp.、<em>Candida</em> spp. 或 <em>Enterococcus</em> spp.（見圖一）。</li>
+            <li><strong>持續菌血症：</strong>在有效抗生素治療下，菌血症仍持續超過 <strong>72 小時</strong>。</li>
+            <li>無法進行抗生素封存療法者。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>溶液體積與操作注意事項</h3>
+            <span class="badge badge-teal">Protocol</span>
+          </div>
+          <ul class="guideline-list">
+            <li><strong>Totally implantable ports（如 Port-A）：</strong><code>3–5 mL</code></li>
+            <li><strong>Tunneled catheters（如 Permcath）：</strong><code>2–3 mL</code></li>
+            <li><strong>更換頻率與回抽：</strong>依建議每 <strong>8–72 小時</strong>更換 ALT。<strong>更換時須回抽管路內溶液至回血後，方能注入新 ALT 溶液。</strong></li>
+            <li><strong>常見選藥：</strong>Gram (+) 為 vancomycin, cefazolin, daptomycin, ampicillin；Gram (-) 為 gentamicin, amikacin, cefepime, ceftazidime, ceftriaxone, ciprofloxacin。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title-bar">
+            <h3>抗凝血劑角色與療效追蹤</h3>
+            <span class="badge badge-amber">Follow-up</span>
+          </div>
+          <ul class="guideline-list">
+            <li><strong>Heparin 角色：</strong>雖可維持管路通暢並可能幫助穿透生物膜，但會增加出血風險且部分抗生素混合易沉澱；是否併用 heparin、EDTA 或 citrate 目前文獻尚無定論。</li>
+            <li><strong>72 小時追蹤：</strong>開始 ALT 後 <strong>72 小時</strong>應自管路與周邊追蹤血液培養；若仍持續陽性，應移除留置導管。</li>
+            <li><strong>建議療程：</strong>與全身性抗生素合併使用，通常 <strong>10–14 天</strong>，<strong>最短不建議短於 7 天</strong>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 圖一：評估與治療 CRI 流程圖（依 2024/2026 院內 PDF 更新含 Enterococcus spp.） -->
+      <div class="card flowchart-card" style="margin-top: 18px;">
         <div class="card-title-bar">
-          <h3>圖一：評估與治療 CRI 流程圖</h3>
+          <h3>圖一：評估與治療 CRI 流程圖<sup>1</sup></h3>
           <span class="badge badge-info">Catheter-Related Infection</span>
         </div>
 
@@ -404,7 +439,7 @@
             <div class="flow-arrow-down"><span class="branch-label no">否</span> ↓</div>
           </div>
 
-          <div class="flow-outcomes">
+          <div class="flow-outcomes cols-5">
             <div class="flow-col">
               <div class="flow-node node-pathogen">CoNS</div>
               <div class="flow-arrow-down">↓</div>
@@ -444,28 +479,46 @@
                 <span class="node-sub">10–14 天</span>
               </div>
             </div>
+
+            <div class="flow-col">
+              <div class="flow-node node-pathogen"><em>Enterococcus</em> spp.</div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-consider-pill">考慮移除管路<sup>d</sup></div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="flow-node node-alt">
+                <strong>ALT ＋ 全身性抗生素</strong><br />
+                <span class="node-sub">10–14 天</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="flow-footnotes">
           <p><sup>a</sup> 導管植入處出現紅腫、疼痛或膿瘍等局部感染症狀。</p>
           <p><sup>b</sup> 心內膜炎、血栓性靜脈炎、敗血性血栓。</p>
-          <p><sup>c</sup> 不包含 <em>Pseudomonas aeruginosa</em>。</p>
+          <p><sup>c</sup> 若為 <em>Pseudomonas aeruginosa</em> 或多重抗藥性菌感染，建議移除管路，並投與全身性抗生素。</p>
+          <p><sup>d</sup> 若有保留長期管路之需求，宜密切追蹤。</p>
           <p class="abbr-line"><strong>縮寫：</strong>ALT = antibiotic lock therapy；CoNS = coagulase-negative staphylococci；CRI = catheter-related infection。</p>
         </div>
       </div>
 
-      <!-- 三份 ALT 文獻對照表 Tabs -->
+      <!-- ALT 附表、泡製步驟、其他文獻與參考文獻 Tabs -->
       <div class="table-card" style="margin-top: 20px;">
-        <div class="tabs-bar" role="tablist" aria-label="ALT 參考文獻對照表">
+        <div class="tabs-bar" role="tablist" aria-label="ALT 參考文獻與泡製步驟">
           <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-alt-tw" type="button">
-            表一：ALT 稀釋液、濃度與劑量建議
+            表一：ALT 稀釋液與濃度建議
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-prep" type="button">
+            附件一：ALT 泡製步驟
           </button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-icj" type="button">
-            感控雜誌 (2013;23:88-94)
+            感控雜誌 (2013)
           </button>
           <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-uptodate" type="button">
-            UpToDate CRBSI Lock Concentrations
+            UpToDate CRBSI
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-refs" type="button">
+            參考文獻 (1–13)
           </button>
         </div>
 
@@ -489,11 +542,44 @@
           </div>
           <div class="table-footnote">
             # 不同導管間之體積約為 2–5 mL，可用生理食鹽水注入導管，再抽取至回血，測量實際體積。<br />
-            LR: lactated Ringer's；NS: normal saline。（提醒：12D 血液科病房因血小板低，實務上皆不加 Heparin）
+            LR: lactated Ringer's；NS: normal saline。（提醒：血液科病人因血小板低，實務上皆不加 Heparin）
           </div>
         </div>
 
-        <!-- Tab 2: 感控雜誌 2013 -->
+        <!-- Tab 2: 附件一 ALT 泡製步驟 -->
+        <div class="tab-panel" id="tab-prep">
+          <div class="prep-guide-body">
+            <p class="prep-intro"><strong>一、選定抗生素及濃度、確認是否加 heparin 及導管最終體積。</strong></p>
+
+            <div class="prep-block">
+              <h4>(一) 抗生素單用</h4>
+              <p>抗生素以稀釋液稀釋至所需濃度，再抽取所需最終體積即可。</p>
+              <p class="prep-example-label">範例：目標 ALT 為 cefazolin = 5.0 mg/mL，導管體積 = 5 mL</p>
+              <div class="prep-steps">
+                <div class="prep-step-box">cefazolin 1000 mg + 100 mL NS<br />→ <strong>cefazolin 10 mg/mL</strong></div>
+                <div class="prep-arrow">→</div>
+                <div class="prep-step-box">取 2.5 mL cefazolin (10 mg/mL)<br />+ 2.5 mL NS</div>
+                <div class="prep-arrow">→</div>
+                <div class="prep-step-box prep-step-result">得 <strong>cefazolin = 5.0 mg/mL</strong><br />體積 = <strong>5 mL</strong> 之 ALT</div>
+              </div>
+            </div>
+
+            <div class="prep-block">
+              <h4>(二) 抗生素 + heparin 併用</h4>
+              <p>抗生素與 heparin 皆用稀釋液稀釋至 <strong>2 倍</strong>的 ALT 目標濃度，各抽取 <strong>1/2</strong> 的最終體積，最後將兩者混合，即得所需濃度與體積。</p>
+              <p class="prep-example-label">範例：目標 ALT 為 cefazolin = 5.0 mg/mL、heparin = 2500 IU/mL，導管體積 = 5 mL</p>
+              <div class="prep-steps">
+                <div class="prep-step-box">cefazolin 1000 mg + 100 mL NS<br />→ <strong>cefazolin 10 mg/mL</strong></div>
+                <div class="prep-arrow">＋</div>
+                <div class="prep-step-box">heparin (25000 IU/5 mL/vial) 2.5 mL<br />→ <strong>heparin 5000 IU/mL</strong></div>
+                <div class="prep-arrow">＝</div>
+                <div class="prep-step-box prep-step-result">2.5 mL cefazolin (10 mg/mL) + 2.5 mL heparin<br />→ 得 <strong>cefazolin 5.0 mg/mL、heparin 2500 IU/mL</strong>，體積 <strong>5 mL</strong> 之 ALT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: 感控雜誌 2013 -->
         <div class="tab-panel" id="tab-icj">
           <div class="table-wrap">
             <table class="clinical-table compact">
@@ -513,7 +599,7 @@
           </div>
         </div>
 
-        <!-- Tab 3: UpToDate -->
+        <!-- Tab 4: UpToDate -->
         <div class="tab-panel" id="tab-uptodate">
           <div class="table-wrap">
             <table class="clinical-table compact">
@@ -538,18 +624,26 @@
             </ul>
           </div>
         </div>
+
+        <!-- Tab 5: 院內指引參考文獻 1-13 -->
+        <div class="tab-panel" id="tab-refs">
+          <div class="refs-body">
+            <ol class="refs-list" id="alt-refs-list"></ol>
+          </div>
+          <div class="table-footnote">
+            出處：國立臺灣大學醫學院附設醫院《抗生素封存療法 (antibiotic lock therapy, ALT) 使用建議》（文件編號 15660-2-000004，113 年 10 月 30 日第 265 次藥事委員會通過）。
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>12D 血液科病房常用處方速查 · 僅供院內醫療人員臨床參考，實際開立請依病人腎功能、血小板與院內最新藥品規格確認</p>
+      <p>血液科病房常用處方速查 · 僅供院內醫療人員臨床參考，實際開立請依病人腎功能、血小板與院內最新藥品規格確認</p>
       <p><a href="https://lichiahans.github.io/hematology-portal/" class="ext-link">返回血液科臨床資源入口網</a> · 2026.11</p>
     </div>
   </footer>
-
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="data.js"></script>
   <script src="app.js"></script>

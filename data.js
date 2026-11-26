@@ -468,5 +468,21 @@ window.WARD_DATA = {
     { spectrum: "Gram-negative", drug: "Cefepime", conc: "1 to 10 mg/mL", heparin: "none", dwell: "48 hours", ref: "Lee [7]" },
     { spectrum: "Gram-negative", drug: "Ciprofloxacin", conc: "1 to 5 mg/mL", heparin: "none", dwell: "48 hours", ref: "Lee [7], Lee [8]" },
     { spectrum: "Gram-negative", drug: "Ceftriaxone", conc: "100 mg/mL", heparin: "none", dwell: "48 hours", ref: "Ceftriaxone [9]" }
+  ],
+
+  altReferences: [
+    "Chaves F, Garnacho-Montero J, Del Pozo JL, et al. Diagnosis and treatment of catheter-related bloodstream infection: Clinical guidelines of the Spanish Society of Infectious Diseases and Clinical Microbiology (SEIMC) and the Spanish Society of Intensive and Critical Care Medicine and Coronary Units (SEMICYUC). Med Intensiva (Engl Ed) 2018;42:5-36.",
+    "Members of the Sous les Verrous Study G. Antibiotic lock therapy for the conservative treatment of long-term intravenous catheter-related infections in adults and children: When and how to proceed? Guidelines for clinical practice 2020. Infect Dis Now 2021;51:236-46.",
+    "Mermel LA, Allon M, Bouza E, et al. Clinical practice guidelines for the diagnosis and management of intravascular catheter-related infection: 2009 Update by the Infectious Diseases Society of America. Clin Infect Dis 2009;49:1-45.",
+    "Lock therapy for treatment and prevention of intravascular non-hemodialysis catheter-related infection. UpToDate, 2024 (Accessed Feb 13, 2024).",
+    "Justo JA, Bookstaver PB. Antibiotic lock therapy: review of technique and logistical challenges. Infect Drug Resist 2014;7:343-63.",
+    "Fernandez-Hidalgo N, Almirante B. Antibiotic-lock therapy: a clinical viewpoint. Expert Rev Anti Infect Ther 2014;12:117-29.",
+    "Zanwar S, Jain P, Gokarn A, et al. Antibiotic lock therapy for salvage of tunneled central venous catheters with catheter colonization and catheter-related bloodstream infection. Transpl Infect Dis 2019;21:e13017.",
+    "Ampicillin [package insert]. New York, NY: Pfizer Inc; 2010.",
+    "Vercaigne LM, Sitar DS, Penner SB, et al. Antibiotic-heparin lock: in vitro antibiotic stability combined with heparin in a central venous catheter. Pharmacotherapy 2000;20:394.",
+    "LaPlante KL, Mermel LA. In vitro activity of daptomycin and vancomycin lock solutions on staphylococcal biofilms in a central venous catheter model. Nephrol Dial Transplant 2007;22:2239.",
+    "Lee MY, Ko KS, Song JH, Peck KR. In vitro effectiveness of the antibiotic lock technique (ALT) for the treatment of catheter-related infections by Pseudomonas aeruginosa and Klebsiella pneumoniae. J Antimicrob Chemother 2007;60:782.",
+    "Ceftriaxone [package insert]. Lake Forest, IL: Hospira Worldwide Inc; 2015.",
+    "Vercaigne LM, Sitar DS, Penner SB, et al. Antibiotic-heparin lock: in vitro antibiotic stability combined with heparin in a central venous catheter. Pharmacotherapy 2000;20:394."
   ]
 };

@@ -1,4 +1,4 @@
-/* 12D 血液科病房常用處方速查 — 樣式表（與血液科入口網風格一致） */
+/* 血液科病房常用處方速查 — 樣式表（與血液科入口網風格一致） */
 :root {
   --bg: #f5f7fa;
   --surface: #ffffff;
@@ -841,13 +841,12 @@ code {
   border-radius: 6px;
 }
 
-/* Ribavirin grid */
+/* Ribavirin stack */
 .grid-2-riba {
-  display: grid;
-  grid-template-columns: 1.45fr 1fr;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-top: 16px;
-  align-items: start;
 }
 
 .dose-list {
@@ -898,15 +897,22 @@ code {
   line-height: 1.2;
 }
 
-.alert-banner strong {
+.alert-banner > div > strong {
   font-size: 0.98rem;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .alert-banner p {
   font-size: 0.88rem;
   color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.alert-banner p strong {
+  display: inline;
+  font-weight: 700;
+  color: var(--danger-text);
 }
 
 /* CRI Flowchart */
@@ -1043,6 +1049,114 @@ code {
   border-top: 2px dashed var(--border);
 }
 
+.flow-outcomes.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.node-consider-pill {
+  background: #d97706;
+  color: #ffffff;
+  border-color: #b45309;
+  font-weight: 700;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+/* ALT Guideline Grid & Prep Steps */
+.alt-guideline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.guideline-list {
+  padding-left: 18px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.guideline-list strong {
+  color: var(--text-primary);
+}
+
+.prep-guide-body {
+  padding: 18px 20px;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.prep-intro {
+  color: var(--text-primary);
+}
+
+.prep-block h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.prep-block p {
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.prep-example-label {
+  font-weight: 600;
+  color: var(--indigo-text) !important;
+  margin-top: 6px;
+}
+
+.prep-steps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.prep-step-box {
+  flex: 1;
+  min-width: 190px;
+  background: var(--surface-subtle);
+  border: 1.5px solid var(--indigo-border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  text-align: center;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.prep-step-result {
+  background: var(--teal-bg);
+  border-color: var(--teal-border);
+}
+
+.prep-arrow {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.refs-body {
+  padding: 16px 22px;
+}
+
+.refs-list {
+  padding-left: 20px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.55;
+}
+
 .flow-col {
   display: flex;
   flex-direction: column;
@@ -1165,11 +1279,13 @@ tr.search-hidden,
 /* Responsive */
 @media (max-width: 960px) {
   .grid-2-adm,
-  .grid-2-riba {
+  .grid-2-riba,
+  .alt-guideline-grid {
     grid-template-columns: 1fr;
   }
 
-  .flow-outcomes {
+  .flow-outcomes,
+  .flow-outcomes.cols-5 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1180,11 +1296,13 @@ tr.search-hidden,
     position: static;
   }
 
-  .flow-outcomes {
+  .flow-outcomes,
+  .flow-outcomes.cols-5 {
     grid-template-columns: 1fr;
   }
 
-  .flow-branch-right {
+  .flow-branch-right,
+  .prep-steps {
     flex-direction: column;
   }
 

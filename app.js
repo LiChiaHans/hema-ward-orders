@@ -3,7 +3,6 @@
   if (!data) return;
 
   let activeCommonCat = "all";
-  let toastTimer = null;
 
   function escapeHtml(str) {
     return String(str || "")
@@ -20,42 +19,7 @@
       .join("")}</span>`;
   }
 
-  function showToast(msg) {
-    const toast = document.getElementById("toast");
-    toast.textContent = msg;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
-  }
-
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(
-        () => showToast("已複製醫囑：" + text.slice(0, 36) + (text.length > 36 ? "…" : "")),
-        () => fallbackCopy(text)
-      );
-    } else {
-      fallbackCopy(text);
-    }
-  }
-
-  function fallbackCopy(text) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-      showToast("已複製醫囑");
-    } catch {
-      showToast("複製失敗，請手動選取");
-    }
-    document.body.removeChild(ta);
-  }
-
-  // 1. Render 12D Common Orders
+  // 1. Render Common Orders
   function renderCommonOrders() {
     const tbody = document.getElementById("common-orders-body");
     tbody.innerHTML = data.commonOrders
@@ -70,13 +34,8 @@
               ${renderBadges(item.badges)}
             </td>
             <td>
-              <div class="order-cell-wrap">
-                <div>
-                  <div class="order-code">${escapeHtml(item.order)}</div>
-                  ${item.special ? `<span class="order-special">${escapeHtml(item.special)}</span>` : ""}
-                </div>
-                <button class="copy-btn-mini" type="button" data-copy="${escapeHtml(item.copyText)}">複製</button>
-              </div>
+              <div class="order-code">${escapeHtml(item.order)}</div>
+              ${item.special ? `<span class="order-special">${escapeHtml(item.special)}</span>` : ""}
             </td>
           </tr>
         `;
@@ -104,13 +63,8 @@
               ${renderBadges(item.badges)}
             </td>
             <td>
-              <div class="order-cell-wrap">
-                <div>
-                  <div class="order-code">${escapeHtml(item.order)}</div>
-                  ${item.special ? `<span class="order-special">${escapeHtml(item.special)}</span>` : ""}
-                </div>
-                <button class="copy-btn-mini" type="button" data-copy="${escapeHtml(item.copyText)}">複製</button>
-              </div>
+              <div class="order-code">${escapeHtml(item.order)}</div>
+              ${item.special ? `<span class="order-special">${escapeHtml(item.special)}</span>` : ""}
             </td>
           </tr>
         `
@@ -127,7 +81,6 @@
           <div class="adm-item searchable-item">
             <div class="adm-item-top">
               <span class="adm-item-title">${escapeHtml(item.title)}</span>
-              <button class="copy-btn-mini" type="button" data-copy="${escapeHtml(item.copyText)}">複製</button>
             </div>
             <div class="adm-item-order">${escapeHtml(item.order)}</div>
             ${item.note ? `<div class="adm-item-note">${escapeHtml(item.note)}</div>` : ""}
@@ -150,7 +103,7 @@
       .join("");
   }
 
-  // 4. Render 12D Lock Recipes
+  // 4. Render Lock Recipes
   function renderLockRecipes() {
     const tbody = document.getElementById("lock-body");
     tbody.innerHTML = data.lockRecipes
@@ -160,13 +113,8 @@
             <td class="indication-cell">${item.drug}</td>
             <td><span class="badge badge-info">${escapeHtml(item.conc)}</span></td>
             <td>
-              <div class="order-cell-wrap">
-                <div>
-                  <div class="order-code">${item.orderHtml || escapeHtml(item.order)}</div>
-                  <span class="order-special">${escapeHtml(item.special)}</span>
-                </div>
-                <button class="copy-btn-mini" type="button" data-copy="${escapeHtml(item.copyText)}">複製</button>
-              </div>
+              <div class="order-code">${item.orderHtml || escapeHtml(item.order)}</div>
+              <span class="order-special">${escapeHtml(item.special)}</span>
             </td>
             <td>${item.prepHtml}</td>
           </tr>
@@ -175,7 +123,7 @@
       .join("");
   }
 
-  // 5. Render Reference Tables
+  // 5. Render Reference Tables & ALT References
   function renderReferenceTables() {
     document.getElementById("ref-alt-tw-body").innerHTML = data.refAltTw
       .map(
@@ -220,34 +168,13 @@
         `
       )
       .join("");
-  }
 
-  // G-CSF Calculator
-  function setupGcsfCalc() {
-    const input = document.getElementById("gcsf-weight");
-    const output = document.getElementById("gcsf-result");
-
-    input.addEventListener("input", () => {
-      const w = parseFloat(input.value);
-      if (!w || w <= 0) {
-        output.textContent = "輸入體重即可計算建議劑量（5 mcg/kg，臨床取整數開立）。";
-        return;
-      }
-      const rawDose = w * 5;
-      const rounded75 = Math.round(rawDose / 75) * 75;
-      const amps300 = Math.floor(rounded75 / 300);
-      const rem75 = (rounded75 % 300) / 75;
-      const comboParts = [];
-      if (amps300 > 0) comboParts.push(`300 mcg × ${amps300} amp`);
-      if (rem75 > 0) comboParts.push(`75 mcg × ${rem75} amp`);
-      const comboText = comboParts.length ? comboParts.join(" + ") : "75 mcg × 1 amp";
-
-      output.innerHTML = `
-        <strong>計算值：</strong>${rawDose.toFixed(0)} mcg/day（5 mcg/kg × ${w} kg）→
-        <strong>建議取整：</strong><span style="color: var(--teal-text); font-weight: 700;">${Math.max(75, rounded75)} mcg SC QN</span>
-        （參考組合：${comboText}）
-      `;
-    });
+    const refsList = document.getElementById("alt-refs-list");
+    if (refsList && data.altReferences) {
+      refsList.innerHTML = data.altReferences
+        .map((ref) => `<li>${escapeHtml(ref)}</li>`)
+        .join("");
+    }
   }
 
   // Ribavirin Calculator
@@ -312,13 +239,8 @@
       }
 
       outEl.innerHTML = `
-        <div class="order-cell-wrap">
-          <div>
-            <div>建議 Ribavirin (RSV) 劑量：<span class="dose-big">${escapeHtml(dose)}</span></div>
-            <div class="muted-note" style="margin-top: 2px;">${escapeHtml(note)}</div>
-          </div>
-          <button class="copy-btn-mini" type="button" data-copy="Ribavirin ${escapeHtml(dose)}">複製劑量</button>
-        </div>
+        <div>建議 Ribavirin (RSV) 劑量：<span class="dose-big">${escapeHtml(dose)}</span></div>
+        <div class="muted-note" style="margin-top: 2px;">${escapeHtml(note)}</div>
       `;
     }
 
@@ -344,11 +266,10 @@
       if (!q) {
         rows.forEach((el) => el.classList.remove("search-hidden"));
         summary.classList.add("hidden");
-        renderCommonOrders(); // restore category filter
+        renderCommonOrders();
         return;
       }
 
-      // When searching, temporarily show all categories in common orders
       document.querySelectorAll("#common-orders-body tr").forEach((tr) => tr.classList.remove("hidden"));
 
       let matches = 0;
@@ -455,20 +376,12 @@
     });
   }
 
-  // Copy delegation
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-copy]");
-    if (!btn) return;
-    copyText(btn.getAttribute("data-copy"));
-  });
-
   // Init
   renderCommonOrders();
   renderNvOrders();
   renderAdmissionAndTdm();
   renderLockRecipes();
   renderReferenceTables();
-  setupGcsfCalc();
   setupRibavirinCalc();
   setupCommonFilter();
   setupSearch();
